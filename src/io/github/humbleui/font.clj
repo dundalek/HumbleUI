@@ -43,9 +43,9 @@
 (defn set-size! [^Font font size]
   (.setSize font size))
 
-(defmethod print-method Font [o ^Writer w]
-  (.write w "#Font{familyName=")
-  (.write w (typeface/family-name (typeface o)))
-  (.write w ", size=")
-  (.write w (str (size o)))
-  (.write w "}"))
+#_(defmethod print-method Font [o ^Writer w]
+    (.write w "#Font{familyName=")
+    (.write w (typeface/family-name (typeface o)))
+    (.write w ", size=")
+    (.write w (str (size o)))
+    (.write w "}"))

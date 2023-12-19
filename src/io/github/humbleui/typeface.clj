@@ -33,7 +33,7 @@
 (defn family-name ^String [^Typeface typeface]
   (.getFamilyName typeface))
 
-(defmethod print-method Typeface [o ^Writer w]
-  (.write w "#Typeface{familyName=")
-  (.write w (family-name o))
-  (.write w "}"))
+#_(defmethod print-method Typeface [o ^Writer w]
+    (.write w "#Typeface{familyName=")
+    (.write w (family-name o))
+    (.write w "}"))
