@@ -93,7 +93,7 @@
            tokens   (mapv
                       (fn [token]
                         {:text   token
-                         :shaped (.shapeLine core/shaper token font ^ShapingOptions features)
+                         :shaped (.shapeLine (core/shaper) token font ^ShapingOptions features)
                          :blank? (str/blank? token)})
                       (words text))]
        (map->Paragraph

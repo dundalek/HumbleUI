@@ -29,8 +29,11 @@
 
 ;; state
 
-(def ^Shaper shaper
-  (Shaper/makeShapeDontWrapOrReorder))
+(def *shaper
+  (delay (Shaper/makeShapeDontWrapOrReorder)))
+
+(defn shaper ^Shaper []
+  @*shaper)
 
 (defonce ^Timer *timer
   (delay (Timer. true)))

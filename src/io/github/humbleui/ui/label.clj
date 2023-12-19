@@ -30,7 +30,7 @@
            features (cond-> ShapingOptions/DEFAULT
                       (not (empty? (:features opts)))
                       (.withFeatures (str/join " " (:features opts))))
-           line     (.shapeLine core/shaper text font ^ShapingOptions features)]
+           line     (.shapeLine (core/shaper) text font ^ShapingOptions features)]
        (map->Label
          {:paint   paint
           :line    line

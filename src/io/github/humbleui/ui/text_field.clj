@@ -471,7 +471,7 @@
 (defn- text-line ^TextLine [text-field ctx]
   (get-cached text-field ctx :text :cached/text :line
     (fn [text state]
-      (.shapeLine core/shaper text (:font state) (:features text-field)))))
+      (.shapeLine (core/shaper) text (:font state) (:features text-field)))))
 
 (defn- placeholder-line ^TextLine [text-field ctx]
   (get-cached text-field ctx :placeholder :cached/placeholder :line-placeholder
@@ -479,7 +479,7 @@
       (let [font (or 
                    (:hui.text-field/font-placeholder ctx)
                    (:font state))]
-        (.shapeLine core/shaper placeholder font (:features text-field))))))
+        (.shapeLine (core/shaper) placeholder font (:features text-field))))))
 
 (defn- coord-to [text-field ctx]
   (get-cached text-field ctx :to :cached/to :coord-to
