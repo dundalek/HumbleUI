@@ -32,8 +32,8 @@
 (def ^Shaper shaper
   (Shaper/makeShapeDontWrapOrReorder))
 
-(defonce ^Timer timer
-  (Timer. true))
+(defonce ^Timer *timer
+  (delay (Timer. true)))
 
 (def ^{:arglists '([^Throwable t])} log-error
   error/log-error)
@@ -409,11 +409,11 @@
 (defn schedule
   ([f ^long delay]
    (let [t (timer-task f)]
-     (.schedule timer t delay)
+     (.schedule ^Timer @*timer t delay)
      #(.cancel t)))
   ([f ^long delay ^long period]
    (let [t (timer-task f)]
-     (.scheduleAtFixedRate timer t delay period)
+     (.scheduleAtFixedRate ^Timer @*timer t delay period)
      #(.cancel t))))
 
 (defn now []
